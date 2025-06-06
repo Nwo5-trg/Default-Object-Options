@@ -1,0 +1,39 @@
+{
+	"geode": "4.5.0",
+	"gd": {
+		"win": "2.2074",
+		"android": "2.2074",
+		"mac": "2.2074",
+		"ios": "2.2074"
+	},
+	"id": "nwo5.default_object_options",
+	"name": "Default Object Options",
+	"version": "v1.0.0",
+	"developer": "Nwo5",
+	"description": "Edit some object values on place.",
+	"links": {"source": "https://github.com/Nwo5-trg/Default-Object-Options"},
+	"tags": ["editor", "utility", "offline"],
+	"settings": {
+		"advanced-options": {
+			"type": "bool",
+			"name": "Use JSON",
+			"description": "use a json for individual object configuration with more options :3",
+			"default": false
+		},
+		"dont-fade": {
+			"type": "bool",
+			"name": "Dont Fade",
+			"default": true
+		},
+		"dont-enter": {
+			"type": "bool",
+			"name": "Dont Enter",
+			"default": true
+		},
+		"no-glow": {
+			"type": "bool",
+			"name": "No Glow",
+			"default": true
+		}
+	}
+}
