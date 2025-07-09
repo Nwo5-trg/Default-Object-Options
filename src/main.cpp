@@ -7,9 +7,7 @@ struct ObjectOptions {
     std::unordered_set<int> groups;
     // "dont-fade", "dont-enter", "no-effects",
     // "no-touch", "no-particles", "no-glow"
-    std::array<bool, 6> toggles = {
-        false // :3
-    };
+    std::array<bool, 6> toggles = {false};
     float scaleX = 1.0f, scaleY = 1.0f;
 };
 
@@ -72,7 +70,7 @@ class $modify(Editor, LevelEditorLayer) {
     void parseDefaultObjectOptions() {
         auto& defaultObjectOptions = m_fields->defaultObjectOptions;
 
-        auto path = (mod->getConfigDir() / "entries.json").string(); // i hope this is safe im spamming checks cuz im paranoid at bad at this
+        auto path = string::pathToString(mod->getConfigDir() / "entries.json"); // i hope this is safe im spamming checks cuz im paranoid at bad at this
         if (!std::filesystem::exists(path)) {
             Notification::create("(Default Object Options) invalid filepath, try 'entries.json' :3", NotificationIcon::Error)->show();
             return;
@@ -94,7 +92,6 @@ class $modify(Editor, LevelEditorLayer) {
 
         for (auto [id, value] : json) {
             auto objectID = std::strtol(id.c_str(), nullptr, 10);
-            if (objectID == 0) continue;
             ObjectOptions objectOptions;
             if (value.contains("groups") && value["groups"].isArray()) {
                 auto groups = value["groups"].asArray().unwrap();
